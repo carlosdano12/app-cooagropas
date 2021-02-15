@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.MainPage">
+
+    <ContentPage.Content>
+
+        <Grid>
+
+            <Image Source="wallpaper1.jpg" Aspect="AspectFill"/>
+            <BoxView Color="White" Opacity="0.5"/>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="Logo3.png"  HeightRequest="150" WidthRequest="150" Margin="50,80,0,0"/>
+
+                <StackLayout Grid.Row="1" Padding="10,20">
+                    <Label Text="NUMERO DE DOCUMENTO" FontSize="Large" TextColor="Black" />
+                    <Entry x:Name="txtDocumento" Placeholder="Documento"  PlaceholderColor="#8B4513"  />
+                    <Label Text="CONTRASEÑA" FontSize="Large" TextColor="Black" />
+                    <Entry x:Name="txtContraseña" Placeholder="Contraseña" PlaceholderColor="#8B4513" IsPassword="True" />
+                    <Label />
+
+                    <Button Text="Iniciar sesion" BackgroundColor="#2D7649" BorderRadius="20" TextColor="White" Font="Bold" Clicked="Button_Clicked"/>
+
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "aY/VicLbsdPXeNUT7HJA/Rkcr2r9aseJUlAIUtBu/hkXuXToXiybv+7gdHUZFqntRHLgBWn/j3TcHSaiAuRqKw==",
+  "success": true,
+  "projectFilePath": "F:\\Repos\\app-cooagropas\\Siscoo.iOS\\Siscoo.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.6.0.1141\\xamarin.forms.4.6.0.1141.nupkg.sha512"
+  ],
+  "logs": []
+}

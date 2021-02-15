@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.RegistrarCultivo">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout>
+            <Label Text="DATOS DEL CULTIVO" HorizontalTextAlignment="Center" TextColor="Black" FontSize="32"/>
+            <Label Text="---INFORMACION SIEMBRA---" HorizontalTextAlignment="Center" TextColor="Black" FontSize="23"/>
+            <Label Text="Nombre cultivo:" FontSize="18"/>
+            <Entry x:Name="txtNombre" Placeholder="Ejemplos Cultiva fina del jardin" PlaceholderColor="Black" />
+            <Picker x:Name="tipo_niame_Pk" Title="Tipo de Ñame" ItemsSource="{Binding Niame}" ItemDisplayBinding="{Binding nombre}"></Picker>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Here -->
+
+                <Label Text="Inicio de siembra:" Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <DatePicker x:Name="inicio_siembra_DtPick" Grid.Row="0" Grid.Column="1" Format="dd/MM/yyyy" FontSize="20"/>
+                <Label Text="Fin de siembra:" Grid.Row="1" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <DatePicker x:Name="fin_siembra_DtPick" Grid.Row="1" Grid.Column="1" Format="dd/MM/yyyy" FontSize="20"/>
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Here -->
+
+                <Label Text="Hectareas sembradas: " Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <Entry x:Name="txtHectareasSembradas" Placeholder="0" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
+                <Label Text="Kg espera cosechar: " Grid.Row="0" Grid.Column="2" FontSize="20" VerticalOptions="Center"/>
+                <Entry x:Name="txtKgEsperaCosechar" Placeholder="0" Grid.Row="0" Grid.Column="3" Keyboard="Numeric"/>
+
+            </Grid>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Grid Here -->
+
+                    <Label Text="Costo total de la siembra: " Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                    <Entry x:Name="txtCostoSiembra" Placeholder="0" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
+
+                </Grid>
+
+                <Button x:Name="btnGuardar" Text="GUARDAR DATOS" Clicked="btnGuardar_Clicked"/>
+                <Button x:Name="btnRegistrar" Text="REGISTRAR DIA DE CONTROL"/>
+                <Button x:Name="btnCosechar" Text="COSECHAR" Clicked="btnCosechar_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

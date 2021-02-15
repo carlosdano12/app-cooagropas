@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.GestionarCultivos">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="fondo.png" Aspect="AspectFill"/>
+            <BoxView Color="Black" Opacity="0.5"/>
+        <StackLayout>
+                <Label Text="GESTIONAR CULTIVOS" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <ScrollView>
+                <ListView x:Name="cultivos_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding cultivos}" HasUnevenRows="True" ItemSelected="cultivos_lv_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Vertical" Padding="5">
+                                        <Label Text="{Binding nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+                <Button Text="REGISTRAR NUEVO CULTIVO" BackgroundColor="#2D7649" TextColor="White" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

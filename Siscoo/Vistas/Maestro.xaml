@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.Maestro"
+             Title="SISCOO">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btn_gestion_siembra" Text="GESTIONAR SIEMBRA" Clicked="btn_gestion_cultivo_Clicked"></Button>
+            <Button x:Name="btn_gestion_cosecha" Text="GESTIONAR COSECHA" Clicked="btn_gestion_cultivo_Clicked"></Button>
+            <Button x:Name="btn_gestion_transporte" Text="GESTIONAR TRANSPORTES" Clicked="btn_gestion_transporte_Clicked"></Button>
+            <Button x:Name="btn_solicitud_compra" Text="SOLICITUDES DE COMPRA" Clicked="btn_solicitud_compra_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.GestionarCosecha">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="INFORMACION COSECHA" HorizontalTextAlignment="Center" TextColor="Black" FontSize="23"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Here -->
+
+                <Label Text="Inicio de cosecha:" Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <DatePicker x:Name="inicio_cosecha_DtPick" Grid.Row="0" Grid.Column="1" Format="dd/MM/yyyy" FontSize="20"/>
+                <Label Text="Fin de cosecha:" Grid.Row="1" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <DatePicker x:Name="fin_cosecha_DtPick" Grid.Row="1" Grid.Column="1" Format="dd/MM/yyyy" FontSize="20"/>
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Here -->
+
+                <Label Text="Kg cosechados: " Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <Entry x:Name="txtKgCosecha" Placeholder="0" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
+                <Label Text="Kg cosechados en buen estado: " Grid.Row="1" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <Entry x:Name="txtKgCosechaBien" Placeholder="0" Grid.Row="1" Grid.Column="1" Keyboard="Numeric"/>
+
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Grid Here -->
+
+                <Label Text="Costo total de la cosecha: " Grid.Row="0" Grid.Column="0" FontSize="20" VerticalOptions="Center"/>
+                <Entry x:Name="txtCostoCosecha" Placeholder="0" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
+
+            </Grid>
+            <Button Text="GUARDAR DATOS"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
