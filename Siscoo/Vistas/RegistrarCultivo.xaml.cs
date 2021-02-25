@@ -1,4 +1,5 @@
 ﻿using Siscoo.clases;
+using Siscoo.dtos;
 using Siscoo.comunicaciones;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,18 @@ namespace Siscoo.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarCultivo : ContentPage
     {
-        Asociado asociado = new Asociado();
+        LoginResponseDto asociado = new LoginResponseDto();
         Cultivo cultivo1 = new Cultivo();
         readonly NiameManager niameManager = new NiameManager();
         readonly CultivoManager cultivoManager = new CultivoManager();
         List<Niame> niames = new List<Niame>();
-        public RegistrarCultivo(Asociado aso, Cultivo cultivo)
+        public RegistrarCultivo(LoginResponseDto aso, Cultivo cultivo)
         {
             InitializeComponent();
             asociado = aso;
             cultivo1 = cultivo;
             llenaLista();
-            if (cultivo.id_cultivo != 0)
+            if (cultivo.id_cultivo != "")
             {
                 llenarDatosCultivo();
             }
@@ -41,7 +42,7 @@ namespace Siscoo.Vistas
         public async void llenaLista()
         {
             niames = new List<Niame>();
-            var niameList = await niameManager.GetAll(asociado.id_asociado);
+            var niameList = await niameManager.GetAll();
 
             foreach (Niame niame in niameList)
             {
@@ -90,19 +91,19 @@ namespace Siscoo.Vistas
                     costo = float.Parse(txtCostoSiembra.Text);
                 }
 
-                if (cultivo1.id_cultivo == 0)
+                if (cultivo1.id_cultivo == "")
                 {
-                    var result = await cultivoManager.Add(asociado.id_asociado, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
+                    var result = await cultivoManager.Add(asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
                     Cultivo cultivo = (Cultivo)result;
-                    if (cultivo.id_cultivo != 0)
+                    if (cultivo.id_cultivo != "")
                     {
                         await DisplayAlert("Cultivo", "Se registro la siembra correctamente", "OK");
                         await Navigation.PopAsync();
                     }
                 }else {
-                    var result = await cultivoManager.update(cultivo1.id_cultivo, asociado.id_asociado, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
+                    var result = await cultivoManager.update(cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
                     Cultivo cultivo = (Cultivo)result;
-                    if (cultivo.id_cultivo != 0)
+                    if (cultivo.id_cultivo != "")
                     {
                         await DisplayAlert("Cultivo", "Se actualizo la informacion de la siembra correctamente", "OK");
                         await Navigation.PopAsync();

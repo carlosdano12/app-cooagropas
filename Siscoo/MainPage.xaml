@@ -24,10 +24,10 @@
                     <Label Text="NUMERO DE DOCUMENTO" FontSize="Large" TextColor="Black" />
                     <Entry x:Name="txtDocumento" Placeholder="Documento"  PlaceholderColor="#8B4513"  />
                     <Label Text="CONTRASEÑA" FontSize="Large" TextColor="Black" />
-                    <Entry x:Name="txtContraseña" Placeholder="Contraseña" PlaceholderColor="#8B4513" IsPassword="True" />
+                    <Entry x:Name="txtContrasena" Placeholder="Contraseña" PlaceholderColor="#8B4513" IsPassword="True" />
                     <Label />
 
-                    <Button Text="Iniciar sesion" BackgroundColor="#2D7649" BorderRadius="20" TextColor="White" Font="Bold" Clicked="Button_Clicked"/>
+                    <Button Text="Iniciar sesion" BackgroundColor="#2D7649" BorderRadius="20" TextColor="White" Font="Bold" Clicked="Button_Login"/>
 
                 </StackLayout>
             </Grid>

@@ -11,7 +11,7 @@ namespace Siscoo.clases
         public string apellido { get; set; }
         public int id_tipo_documento { get; set; }
         public string documento { get; set; }
-        public string contraseña { get; set; }
+        public string contrasena { get; set; }
         public string telefono { get; set; }
     }
 }

@@ -6,8 +6,8 @@ namespace Siscoo.clases
 {
     public class Cultivo
     {
-        public int id_cultivo { get; set; }
-        public int id_asociado { get; set; }
+        public string id_cultivo { get; set; }
+        public string id_asociado { get; set; }
         public string nombre { get; set; }
         public int id_niame { get; set; }
         public DateTime fecha_inicio_siembra;

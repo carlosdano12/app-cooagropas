@@ -1,5 +1,6 @@
 ﻿using Siscoo.comunicaciones;
 using Siscoo.clases;
+using Siscoo.dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,10 @@ namespace Siscoo.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GestionarCultivos : ContentPage
     {
-        Asociado asociado = new Asociado();
+        LoginResponseDto asociado = new LoginResponseDto();
         readonly CultivoManager cultivoManager = new CultivoManager();
         List<Cultivo> cultivos = new List<Cultivo>();
-        public GestionarCultivos(Asociado aso)
+        public GestionarCultivos(LoginResponseDto aso)
         {
             InitializeComponent();
             asociado = aso;
@@ -37,7 +38,7 @@ namespace Siscoo.Vistas
 
             foreach (Cultivo cultivo in culList)
             {
-                if (cultivo.id_cultivo != 0)
+                if (cultivo.id_cultivo != "")
                 {
                     cultivos.Add(cultivo);
                 }
@@ -57,5 +58,6 @@ namespace Siscoo.Vistas
             Cultivo cultivo = new Cultivo();
             Navigation.PushAsync(new RegistrarCultivo(asociado, cultivo));
         }
+
     }
 }

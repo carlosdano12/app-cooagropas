@@ -21,12 +21,12 @@ namespace Siscoo.comunicaciones
             return cliente;
         }
 
-        public async Task<List<Niame>> GetAll(int id)
+        public async Task<List<Niame>> GetAll()
         {
 
 
             HttpClient client = await get();
-            string result = await client.GetStringAsync(url + "?id=" + id);
+            string result = await client.GetStringAsync(url + "?id=");
 
             return JsonConvert.DeserializeObject<List<Niame>>(result);
         }

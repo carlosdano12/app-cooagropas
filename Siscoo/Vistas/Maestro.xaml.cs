@@ -1,4 +1,4 @@
-﻿using Siscoo.clases;
+﻿using Siscoo.dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,8 @@ namespace Siscoo.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Maestro : ContentPage
     {
-        Asociado asociado = new Asociado();
-        public Maestro(Asociado aso)
+        LoginResponseDto asociado = new LoginResponseDto();
+        public Maestro(LoginResponseDto aso)
         {
             InitializeComponent();
             asociado = aso;
