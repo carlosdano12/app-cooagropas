@@ -21,7 +21,7 @@ namespace Siscoo.comunicaciones
             return cliente;
         }
 
-        public async Task<LoginResponseDto> login(string username, string password)
+        public async Task<ApiResponse> login(string username, string password)
         {
             Login login = new Login()
             {
@@ -31,8 +31,10 @@ namespace Siscoo.comunicaciones
             HttpClient cliente = await get();
             var response = await cliente.PostAsync(url,
                 new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json"));
-
-            return JsonConvert.DeserializeObject<LoginResponseDto>(await response.Content.ReadAsStringAsync());
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.code = response.StatusCode.ToString();
+            apiResponse.message = await response.Content.ReadAsStringAsync();
+            return apiResponse;
 
         }
 

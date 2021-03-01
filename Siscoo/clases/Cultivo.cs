@@ -9,7 +9,7 @@ namespace Siscoo.clases
         public string id_cultivo { get; set; }
         public string id_asociado { get; set; }
         public string nombre { get; set; }
-        public int id_niame { get; set; }
+        public string id_niame { get; set; }
         public DateTime fecha_inicio_siembra;
         public DateTime fecha_fin_siembra { get; set; }
         public float hectareas_sembradas { get; set; }

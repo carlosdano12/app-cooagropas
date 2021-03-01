@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using Newtonsoft.Json;
+using Siscoo.dtos;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -23,9 +25,16 @@ namespace Siscoo
         {
             string documento = txtDocumento.Text;
             string contrsena = txtContrasena.Text;
-            var login = await loginManager.login(documento, contrsena);
-            Console.WriteLine("entra Acces:"+login.accessToken+ "nombre: "+ login.nombre);
-            Navigation.PushModalAsync(new MasterDetail(login));
+            var response = await loginManager.login(documento, contrsena);
+            if(response.code == "OK")
+            {
+                var login = JsonConvert.DeserializeObject<LoginResponseDto>(response.message);
+                Navigation.PushModalAsync(new MasterDetail(login));
+            }else
+            {
+                await DisplayAlert("Login fallo", "Documento y/o contraseña no validos", "OK");
+            }
+            
         }
 
     }

@@ -4,6 +4,7 @@ using Siscoo.dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,8 @@ namespace Siscoo.Vistas
 
             llenaLista();
 
-            cultivos_lv.RefreshCommand = new Command(() => {
+            cultivos_lv.RefreshCommand = new Command(() =>
+            {
                 llenaLista();
                 cultivos_lv.IsRefreshing = false;
             });
@@ -34,17 +36,33 @@ namespace Siscoo.Vistas
         public async void llenaLista()
         {
             cultivos = new List<Cultivo>();
-            var culList = await cultivoManager.GetAll(1);
-
-            foreach (Cultivo cultivo in culList)
+            var response = await cultivoManager.GetAll(asociado.accessToken);
+            if (response.code == "OK")
             {
-                if (cultivo.id_cultivo != "")
+                var culList = JsonConvert.DeserializeObject<List<Cultivo>>(response.message);
+
+                foreach (Cultivo cultivo in culList)
                 {
-                    cultivos.Add(cultivo);
+                    if (cultivo.id_cultivo != "")
+                    {
+                        cultivos.Add(cultivo);
+                    }
+                }
+                cultivos = cultivos.OrderBy(o => o.nombre).ToList();
+                cultivos_lv.ItemsSource = cultivos;
+            }
+            else
+            {
+                if (response.code == "Unauthorized")
+                {
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    Console.WriteLine("error llenaListaSiembra():" + response.message);
+                    await DisplayAlert("Error", "Ocurrio algun problema al listar los sembrados", "OK");
                 }
             }
-            cultivos = cultivos.OrderBy(o => o.nombre).ToList();
-            cultivos_lv.ItemsSource = cultivos;
         }
 
         private void cultivos_lv_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -56,6 +74,7 @@ namespace Siscoo.Vistas
         private void Button_Clicked(object sender, EventArgs e)
         {
             Cultivo cultivo = new Cultivo();
+            cultivo.id_cultivo = "0";
             Navigation.PushAsync(new RegistrarCultivo(asociado, cultivo));
         }
 

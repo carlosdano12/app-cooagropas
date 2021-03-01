@@ -3,6 +3,7 @@ using Siscoo.dtos;
 using Siscoo.comunicaciones;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,14 +47,14 @@ namespace Siscoo.Vistas
 
             foreach (Niame niame in niameList)
             {
-                if (niame.id_niame != 0)
+                if (niame.id_niame != null)
                 {
                     niames.Add(niame);
                 }
             }
             niames = niames.OrderBy(o => o.nombre).ToList();
             tipo_niame_Pk.ItemsSource = niames;
-            if(cultivo1.id_niame != 0)
+            if(cultivo1.id_niame != null)
             {
                 for (int i = 0; i < niames.Count; i++)
                 {
@@ -91,16 +92,22 @@ namespace Siscoo.Vistas
                     costo = float.Parse(txtCostoSiembra.Text);
                 }
 
-                if (cultivo1.id_cultivo == "")
+                if (cultivo1.id_cultivo == "0")
                 {
-                    var result = await cultivoManager.Add(asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
-                    Cultivo cultivo = (Cultivo)result;
-                    if (cultivo.id_cultivo != "")
+                    var response = await cultivoManager.Add(asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
+                    if (response.code == "OK")
                     {
                         await DisplayAlert("Cultivo", "Se registro la siembra correctamente", "OK");
                         await Navigation.PopAsync();
                     }
+                    else
+                    {
+                        Console.WriteLine("erro addSiembra(): " + response.message);
+                        await DisplayAlert("Error", "Ocurrio un error al registrar la siembra", "OK");
+                    }
+                    
                 }else {
+                    Console.WriteLine("CULDITO:" + cultivo1.id_cultivo);
                     var result = await cultivoManager.update(cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
                     Cultivo cultivo = (Cultivo)result;
                     if (cultivo.id_cultivo != "")
