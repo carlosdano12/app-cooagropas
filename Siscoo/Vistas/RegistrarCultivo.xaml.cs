@@ -26,15 +26,17 @@ namespace Siscoo.Vistas
             InitializeComponent();
             asociado = aso;
             cultivo1 = cultivo;
+            inicio_siembra_DtPick.Date = DateTime.Now;
             llenaLista();
             if (cultivo.id_cultivo != "")
             {
                 llenarDatosCultivo();
             }
-            else {
+            else
+            {
                 btnRegistrar.IsVisible = false;
                 btnCosechar.IsVisible = false;
-            
+
             }
 
         }
@@ -43,28 +45,46 @@ namespace Siscoo.Vistas
         public async void llenaLista()
         {
             niames = new List<Niame>();
-            var niameList = await niameManager.GetAll();
+            var response = await niameManager.GetAll(asociado.accessToken);
 
-            foreach (Niame niame in niameList)
+            if (response.code == "OK" || response.code == "Created")
             {
-                if (niame.id_niame != null)
+                var niameList = JsonConvert.DeserializeObject<List<Niame>>(response.message);
+
+                foreach (Niame niame in niameList)
                 {
-                    niames.Add(niame);
-                }
-            }
-            niames = niames.OrderBy(o => o.nombre).ToList();
-            tipo_niame_Pk.ItemsSource = niames;
-            if(cultivo1.id_niame != null)
-            {
-                for (int i = 0; i < niames.Count; i++)
-                {
-                    if (niames[i].id_niame == cultivo1.id_niame)
+                    if (niame.id_niame != null)
                     {
-                        tipo_niame_Pk.SelectedIndex = i;
-                        break;
+                        niames.Add(niame);
+                    }
+                }
+                niames = niames.OrderBy(o => o.nombre).ToList();
+                tipo_niame_Pk.ItemsSource = niames;
+                if (cultivo1.id_niame != null)
+                {
+                    for (int i = 0; i < niames.Count; i++)
+                    {
+                        if (niames[i].id_niame == cultivo1.id_niame)
+                        {
+                            tipo_niame_Pk.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
+            else
+            {
+                if (response.code == "Unauthorized")
+                {
+                    Navigation.PushAsync(new MainPage());
+                }
+                else
+                {
+                    Console.WriteLine("error llenaListaNiames():" + response.message);
+                    await DisplayAlert("Error", "Ocurrio algun problema al listar los sembrados", "OK");
+                }
+            }
+
         }
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
@@ -84,18 +104,20 @@ namespace Siscoo.Vistas
                     hectareas = float.Parse(txtHectareasSembradas.Text);
                 }
 
-                if (txtKgEsperaCosechar.Text != null) {
+                if (txtKgEsperaCosechar.Text != null)
+                {
                     kg = float.Parse(txtKgEsperaCosechar.Text);
                 }
 
-                if (txtCostoSiembra.Text != null) {
+                if (txtCostoSiembra.Text != null)
+                {
                     costo = float.Parse(txtCostoSiembra.Text);
                 }
-
                 if (cultivo1.id_cultivo == "0")
                 {
                     var response = await cultivoManager.Add(asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
-                    if (response.code == "OK")
+                    Console.WriteLine("createSiembraCODE: " + response.code);
+                    if (response.code == "OK" || response.code == "Created")
                     {
                         await DisplayAlert("Cultivo", "Se registro la siembra correctamente", "OK");
                         await Navigation.PopAsync();
@@ -105,8 +127,10 @@ namespace Siscoo.Vistas
                         Console.WriteLine("erro addSiembra(): " + response.message);
                         await DisplayAlert("Error", "Ocurrio un error al registrar la siembra", "OK");
                     }
-                    
-                }else {
+
+                }
+                else
+                {
                     Console.WriteLine("CULDITO:" + cultivo1.id_cultivo);
                     var result = await cultivoManager.update(cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
                     Cultivo cultivo = (Cultivo)result;
@@ -117,13 +141,15 @@ namespace Siscoo.Vistas
                     }
                 }
             }
-            else {
+            else
+            {
                 await DisplayAlert("ATENCION!!!", "DEBE SELECCIONAR EL TIPO DE ÑAME", "OK");
             }
 
         }
         //esta funcion llena los datos del cultivo que se selecciono
-        public void llenarDatosCultivo() {
+        public void llenarDatosCultivo()
+        {
 
             txtNombre.Text = cultivo1.nombre;
             inicio_siembra_DtPick.Date = cultivo1.fecha_inicio_siembra;
@@ -131,7 +157,7 @@ namespace Siscoo.Vistas
             txtHectareasSembradas.Text = cultivo1.hectareas_sembradas.ToString();
             txtKgEsperaCosechar.Text = cultivo1.kg_espera_cosechar.ToString();
             txtCostoSiembra.Text = cultivo1.costo_total_siembra.ToString();
-            
+
         }
 
         private void btnCosechar_Clicked(object sender, EventArgs e)
