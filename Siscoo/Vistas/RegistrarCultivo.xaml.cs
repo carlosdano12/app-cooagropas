@@ -26,9 +26,8 @@ namespace Siscoo.Vistas
             InitializeComponent();
             asociado = aso;
             cultivo1 = cultivo;
-            inicio_siembra_DtPick.Date = DateTime.Now;
             llenaLista();
-            if (cultivo.id_cultivo != "")
+            if (cultivo.id_cultivo != "0")
             {
                 llenarDatosCultivo();
             }
@@ -60,12 +59,14 @@ namespace Siscoo.Vistas
                 }
                 niames = niames.OrderBy(o => o.nombre).ToList();
                 tipo_niame_Pk.ItemsSource = niames;
-                if (cultivo1.id_niame != null)
+                if (cultivo1.niameIdNiame != "0")
                 {
                     for (int i = 0; i < niames.Count; i++)
                     {
-                        if (niames[i].id_niame == cultivo1.id_niame)
+                        Console.WriteLine("NiameS: " + niames[i].id_niame + " culNiam: " + cultivo1.niameIdNiame);
+                        if (niames[i].id_niame == cultivo1.niameIdNiame)
                         {
+                            Console.WriteLine("iguales");
                             tipo_niame_Pk.SelectedIndex = i;
                             break;
                         }
@@ -132,13 +133,19 @@ namespace Siscoo.Vistas
                 else
                 {
                     Console.WriteLine("CULDITO:" + cultivo1.id_cultivo);
-                    var result = await cultivoManager.update(cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
-                    Cultivo cultivo = (Cultivo)result;
-                    if (cultivo.id_cultivo != "")
+                    var response = await cultivoManager.update(asociado.accessToken, cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
+                    Console.WriteLine("updateSiem " + response.code);
+                    if (response.code == "OK" || response.code == "Created")
                     {
                         await DisplayAlert("Cultivo", "Se actualizo la informacion de la siembra correctamente", "OK");
                         await Navigation.PopAsync();
                     }
+                    else
+                    {
+                        Console.WriteLine("erro updateSiembra(): " + response.message);
+                        await DisplayAlert("Error", "Ocurrio un error al registrar la siembra", "OK");
+                    }
+
                 }
             }
             else
@@ -162,7 +169,7 @@ namespace Siscoo.Vistas
 
         private void btnCosechar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GestionarCosecha(cultivo1));
+            Navigation.PushAsync(new RegistrarCosecha(cultivo1));
         }
     }
 }

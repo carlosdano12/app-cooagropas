@@ -23,7 +23,6 @@ F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Siscoo.csprojAssemblyRef
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\App.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\Detalle.xaml.g.cs
-F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCosecha.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCultivos.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarTransportes.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\Maestro.xaml.g.cs
@@ -40,3 +39,5 @@ F:\Repos\app-cooagropas\Siscoo\bin\Debug\netstandard2.0\Siscoo.dll
 F:\Repos\app-cooagropas\Siscoo\bin\Debug\netstandard2.0\ref\Siscoo.dll
 F:\Repos\app-cooagropas\Siscoo\bin\Debug\netstandard2.0\Siscoo.pdb
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\XamlC.stamp
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\RegistrarCosecha.xaml.g.cs
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCosecha.xaml.g.cs

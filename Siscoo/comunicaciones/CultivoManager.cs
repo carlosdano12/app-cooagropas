@@ -27,9 +27,9 @@ namespace Siscoo.comunicaciones
 
 
             HttpClient client = await get();
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer "+token);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
-            var result = await client.GetAsync(url+ "/GetAllByAsociado");
+            var result = await client.GetAsync(url + "/GetAllByAsociado");
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.code = result.StatusCode.ToString();
             apiResponse.message = await result.Content.ReadAsStringAsync();
@@ -44,7 +44,7 @@ namespace Siscoo.comunicaciones
             {
                 id_cultivo = "",
                 nombre = nombre,
-                id_niame = id_niame,
+                niameIdNiame = id_niame,
                 fecha_inicio_siembra = fecha_inicio_siembra,
                 fecha_fin_siembra = fecha_fin_siembra,
                 hectareas_sembradas = hectareas_sembradas,
@@ -53,7 +53,7 @@ namespace Siscoo.comunicaciones
                 estado = estado
             };
             HttpClient cliente = await get();
-            cliente.DefaultRequestHeaders.Add("Authorization", "Bearer "+token);
+            cliente.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
             var response = await cliente.PostAsync(url,
                 new StringContent(JsonConvert.SerializeObject(cultivo), Encoding.UTF8, "application/json"));
             ApiResponse apiResponse = new ApiResponse();
@@ -63,14 +63,14 @@ namespace Siscoo.comunicaciones
 
         }
 
-        public async Task<Cultivo> update(string id_cultivo, string id_asociado, string nombre, string id_niame, DateTime fecha_inicio_siembra, DateTime fecha_fin_siembra, float hectareas_sembradas, float kg_espera_cosechar, float costo_total_siembra, Boolean estado)
+        public async Task<ApiResponse> update(string token, string id_cultivo, string id_asociado, string nombre, string id_niame, DateTime fecha_inicio_siembra, DateTime fecha_fin_siembra, float hectareas_sembradas, float kg_espera_cosechar, float costo_total_siembra, Boolean estado)
         {
             Cultivo cultivo = new Cultivo()
             {
                 id_cultivo = id_cultivo,
                 id_asociado = id_asociado,
                 nombre = nombre,
-                id_niame = id_niame,
+                niameIdNiame = id_niame,
                 fecha_inicio_siembra = fecha_inicio_siembra,
                 fecha_fin_siembra = fecha_fin_siembra,
                 hectareas_sembradas = hectareas_sembradas,
@@ -79,8 +79,12 @@ namespace Siscoo.comunicaciones
                 estado = estado
             };
             HttpClient client = await get();
-            var response = await client.PutAsync(url + "?id_cultivo=" + cultivo.id_cultivo, new StringContent(JsonConvert.SerializeObject(cultivo), Encoding.UTF8, "application/json"));
-            return JsonConvert.DeserializeObject<Cultivo>(await response.Content.ReadAsStringAsync());
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            var response = await client.PutAsync(url + "/UpdateSiembra/" + cultivo.id_cultivo, new StringContent(JsonConvert.SerializeObject(cultivo), Encoding.UTF8, "application/json"));
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.code = response.StatusCode.ToString();
+            apiResponse.message = await response.Content.ReadAsStringAsync();
+            return apiResponse;
         }
     }
 }

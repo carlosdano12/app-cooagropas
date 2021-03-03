@@ -68,6 +68,7 @@ namespace Siscoo.Vistas
         private void cultivos_lv_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var cultivo = (Cultivo)e.SelectedItem;
+            Console.WriteLine("culSend: " + cultivo.nombre + " culSendNia: " + cultivo.niameIdNiame);
             Navigation.PushAsync(new RegistrarCultivo(asociado, cultivo));
         }
 

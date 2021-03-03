@@ -1,5 +1,4 @@
-﻿using Siscoo.clases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +12,19 @@ namespace Siscoo.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GestionarCosecha : ContentPage
     {
-        public GestionarCosecha(Cultivo cultivo)
+        public GestionarCosecha()
         {
             InitializeComponent();
+        }
+
+        private void cultivos_lv_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
