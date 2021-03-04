@@ -4,18 +4,18 @@
              x:Class="Siscoo.Vistas.GestionarCosecha">
     <ContentPage.Content>
         <Grid>
-            <Image Source="fondo.png" Aspect="AspectFill"/>
+            <Image Source="niames.jpg" Aspect="AspectFill"/>
             <BoxView Color="Black" Opacity="0.5"/>
             <StackLayout>
-                <Label Text="GESTIONAR CULTIVOS" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                <Label Text="GESTIONAR COSECHAS" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
                 <ScrollView>
-                    <ListView x:Name="cultivos_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding cosecha}" HasUnevenRows="True" ItemSelected="cultivos_lv_ItemSelected">
+                    <ListView x:Name="cosecha_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding cosecha}" HasUnevenRows="True" ItemSelected="cosechas_lv_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
                                         <StackLayout Orientation="Vertical" Padding="5">
-                                            <Label Text="{Binding fecha_inicio_cosecha}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding fecha_inicio_cosecha, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                                         </StackLayout>
                                     </Frame>
                                 </ViewCell>

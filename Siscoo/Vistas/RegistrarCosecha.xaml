@@ -58,7 +58,7 @@
                 <Entry x:Name="txtCostoCosecha" Placeholder="0" Grid.Row="0" Grid.Column="1" Keyboard="Numeric"/>
 
             </Grid>
-            <Button Text="GUARDAR DATOS"/>
+            <Button x:Name="btnGuardar" Text="GUARDAR DATOS" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

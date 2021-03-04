@@ -169,7 +169,7 @@ namespace Siscoo.Vistas
 
         private void btnCosechar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistrarCosecha(cultivo1));
+            Navigation.PushAsync(new GestionarCosecha(asociado, cultivo1));
         }
     }
 }

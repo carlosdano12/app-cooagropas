@@ -76,7 +76,7 @@ namespace Siscoo.comunicaciones
             };
             HttpClient client = await get();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
-            var response = await client.PutAsync(url + "/UpdateCosecha/" + cosecha.cultivoIdCultivo, new StringContent(JsonConvert.SerializeObject(cosecha), Encoding.UTF8, "application/json"));
+            var response = await client.PutAsync(url + "/UpdateCosecha/" + id, new StringContent(JsonConvert.SerializeObject(cosecha), Encoding.UTF8, "application/json"));
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.code = response.StatusCode.ToString();
             apiResponse.message = await response.Content.ReadAsStringAsync();

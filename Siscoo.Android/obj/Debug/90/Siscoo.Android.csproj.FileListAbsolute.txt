@@ -936,3 +936,4 @@ F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_ConvertResourcesCases
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\res\drawable\niames.jpg
