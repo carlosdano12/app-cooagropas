@@ -78,6 +78,5 @@ namespace Siscoo.Vistas
             cultivo.id_cultivo = "0";
             Navigation.PushAsync(new RegistrarCultivo(asociado, cultivo));
         }
-
     }
 }

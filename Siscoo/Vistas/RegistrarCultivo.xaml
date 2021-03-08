@@ -67,7 +67,7 @@
                 </Grid>
 
                 <Button x:Name="btnGuardar" Text="GUARDAR DATOS" Clicked="btnGuardar_Clicked"/>
-                <Button x:Name="btnRegistrar" Text="REGISTRAR DIA DE CONTROL"/>
+                <Button x:Name="btnRegistrar" Text="REGISTRAR DIA DE CONTROL" Clicked="btnRegistrar_Clicked"/>
                 <Button x:Name="btnCosechar" Text="COSECHAR" Clicked="btnCosechar_Clicked"/>
 
             </StackLayout>

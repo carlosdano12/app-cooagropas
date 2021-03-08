@@ -171,5 +171,10 @@ namespace Siscoo.Vistas
         {
             Navigation.PushAsync(new GestionarCosecha(asociado, cultivo1));
         }
+
+        private void btnRegistrar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GestionarDiaControl());
+        }
     }
 }

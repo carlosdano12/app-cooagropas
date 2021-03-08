@@ -937,3 +937,5 @@ F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_GenerateJavaStubs.sta
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\res\drawable\niames.jpg
+F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\res\drawable\imgfondo.jpg
+F:\Repos\app-cooagropas\Siscoo.Android\obj\Debug\90\res\drawable\fondogreen.png
