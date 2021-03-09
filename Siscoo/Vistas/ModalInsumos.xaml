@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.ModalInsumos">
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="fondo.png" Aspect="AspectFill"/>
+            <BoxView Color="Black" Opacity="0.5"/>
+            <StackLayout BackgroundColor="#fff" Opacity="0.5">
+                <Label Text="LISTA DE INSUMOS" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+                <ScrollView>
+                    <ListView x:Name="insumos_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding insumos}" HasUnevenRows="True" ItemSelected="insumos_lv_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Vertical" Padding="5">
+                                            <Label Text="{Binding nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

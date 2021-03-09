@@ -42,3 +42,4 @@ F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\XamlC.stamp
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\RegistrarCosecha.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCosecha.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarDiaControl.xaml.g.cs
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\ModalInsumos.xaml.g.cs

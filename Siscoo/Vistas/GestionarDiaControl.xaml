@@ -27,7 +27,7 @@
                 </Grid>
                 <Label Text="INSUMOS" HorizontalTextAlignment="Center" TextColor="#000" FontSize="18"/>
                 <ScrollView>
-                    <ListView x:Name="cultivos_lv" SeparatorVisibility="Default" BackgroundColor="AliceBlue" IsPullToRefreshEnabled="True" ItemsSource="{Binding cultivos}" HasUnevenRows="True" >
+                    <ListView x:Name="insumos_lv" SeparatorVisibility="Default" BackgroundColor="AliceBlue" IsPullToRefreshEnabled="True" ItemsSource="{Binding insumos}" HasUnevenRows="True" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -41,7 +41,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </ScrollView>
-                <Button x:Name="btnInsumo" Text="AGREGAR INSUMO A LA LISTA" BackgroundColor="#2D6276" TextColor="White" Clicked="Button_Clicked"></Button>
+                <Button x:Name="btnInsumo" Text="AGREGAR INSUMO A LA LISTA" BackgroundColor="#2D6276" TextColor="White" Clicked="btn_insumos"></Button>
                 <Button Text="GUARDAR DATOS" BackgroundColor="#2D7649" TextColor="White" ></Button>
             </StackLayout>
         </Grid>

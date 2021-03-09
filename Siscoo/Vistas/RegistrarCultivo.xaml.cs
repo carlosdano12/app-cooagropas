@@ -174,7 +174,7 @@ namespace Siscoo.Vistas
 
         private void btnRegistrar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GestionarDiaControl());
+            Navigation.PushAsync(new GestionarDiaControl(asociado));
         }
     }
 }

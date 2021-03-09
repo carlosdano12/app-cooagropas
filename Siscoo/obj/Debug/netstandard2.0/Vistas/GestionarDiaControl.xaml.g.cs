@@ -23,7 +23,7 @@ namespace Siscoo.Vistas {
         private global::Xamarin.Forms.Editor textDescripcion;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.ListView cultivos_lv;
+        private global::Xamarin.Forms.ListView insumos_lv;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnInsumo;
@@ -33,7 +33,7 @@ namespace Siscoo.Vistas {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(GestionarDiaControl));
             fecha_control_DtPick = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.DatePicker>(this, "fecha_control_DtPick");
             textDescripcion = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Editor>(this, "textDescripcion");
-            cultivos_lv = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "cultivos_lv");
+            insumos_lv = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "insumos_lv");
             btnInsumo = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnInsumo");
         }
     }
