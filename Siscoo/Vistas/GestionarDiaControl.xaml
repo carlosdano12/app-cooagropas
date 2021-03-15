@@ -33,7 +33,15 @@
                                 <ViewCell>
                                     <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
                                         <StackLayout Orientation="Vertical" Padding="5">
-                                            <Label Text="{Binding nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label FontSize="Large" FontAttributes="Bold" TextColor="Black">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding id}" />
+                                                        <Span Text=" " />
+                                                        <Span Text="{Binding nombre}" TextColor="Red"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
                                         </StackLayout>
                                     </Frame>
                                 </ViewCell>

@@ -17,7 +17,7 @@ namespace Siscoo.Vistas
         LoginResponseDto asociado = new LoginResponseDto();
         List<Insumo> insumos = new List<Insumo>();
 
-        public GestionarDiaControl(LoginResponseDto aso)
+        public GestionarDiaControl(LoginResponseDto aso, string idCultivo)
         {
             InitializeComponent();
             asociado = aso;
@@ -28,12 +28,11 @@ namespace Siscoo.Vistas
             this.Navigation.PushModalAsync(new ModalInsumos(asociado, this));
         }
 
-        public void llenaLista(Insumo insumo)
+        public void llenaLista(Insumo insumo, string cantidad)
         {
             insumos.Add(insumo);
             insumos = insumos.OrderBy(o => o.nombre).ToList();
             insumos_lv.ItemsSource = insumos;
-            textDescripcion.Text = insumos[0].nombre;
             Console.WriteLine("Llega insumo: " + insumos[0].nombre);
         }
     }

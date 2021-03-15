@@ -39,9 +39,8 @@ namespace Siscoo.Vistas
         {
             var insumo = (Insumo)e.SelectedItem;
             Console.WriteLine("inusmo: " + insumo.nombre);
-            string result = await DisplayPromptAsync("Cantidad", "¿Que cantidad de insumo uso en kg?");
-            Console.WriteLine("cantidad insumo: "+ result);
-            _root.llenaLista(insumo);
+            string cantidad = await DisplayPromptAsync("Cantidad", "¿Que cantidad de insumo uso en kg?");
+            _root.llenaLista(insumo, cantidad);
             this.Navigation.PopModalAsync();
         }
 
