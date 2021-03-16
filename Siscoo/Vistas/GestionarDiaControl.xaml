@@ -33,12 +33,12 @@
                                 <ViewCell>
                                     <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
                                         <StackLayout Orientation="Vertical" Padding="5">
-                                            <Label FontSize="Large" FontAttributes="Bold" TextColor="Black">
+                                            <Label FontSize="Large" FontAttributes="Bold" TextColor="red">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="{Binding id}" />
-                                                        <Span Text=" " />
-                                                        <Span Text="{Binding nombre}" TextColor="Red"/>
+                                                        <Span Text="{Binding cantidad}" />
+                                                        <Span Text=" Kg - " />
+                                                        <Span Text="{Binding insumo.nombre}" TextColor="Black"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
@@ -50,7 +50,7 @@
                     </ListView>
                 </ScrollView>
                 <Button x:Name="btnInsumo" Text="AGREGAR INSUMO A LA LISTA" BackgroundColor="#2D6276" TextColor="White" Clicked="btn_insumos"></Button>
-                <Button Text="GUARDAR DATOS" BackgroundColor="#2D7649" TextColor="White" ></Button>
+                <Button x:Name="btnGuardar" Text="GUARDAR DATOS" BackgroundColor="#2D7649" TextColor="White" Clicked="btnGuardar_Clicked" ></Button>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

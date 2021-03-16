@@ -38,14 +38,14 @@ namespace Siscoo.Vistas
         private void diaControl_lv_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var diaControl = (DiaControl)e.SelectedItem;
-            Navigation.PushAsync(new GestionarDiaControl(asociado, cultivo.id_cultivo));
+            Navigation.PushAsync(new GestionarDiaControl(asociado, cultivo.id_cultivo, diaControl));
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Cosecha cosecha = new Cosecha();
-            cosecha.id = "0";
-            Navigation.PushAsync(new GestionarDiaControl(asociado, cultivo.id_cultivo));
+            DiaControl diaControl = new DiaControl();
+            diaControl.id = "0";
+            Navigation.PushAsync(new GestionarDiaControl(asociado, cultivo.id_cultivo, diaControl));
         }
 
         public async void llenaLista()

@@ -10,5 +10,6 @@ namespace Siscoo.clases
         public string diaControlId { get; set; }
         public string insumoId { get; set; }
         public float cantidad { get; set; }
+        public Insumo insumo { get; set; }
     }
 }

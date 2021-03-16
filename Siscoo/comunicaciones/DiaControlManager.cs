@@ -36,5 +36,18 @@ namespace Siscoo.comunicaciones
             Console.WriteLine("messe: " + apiResponse.message);
             return apiResponse;
         }
+
+        public async Task<ApiResponse> Add(string token, DiaControl diaControl)
+        {
+            HttpClient cliente = await get();
+            cliente.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            var response = await cliente.PostAsync(url,
+                new StringContent(JsonConvert.SerializeObject(diaControl), Encoding.UTF8, "application/json"));
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.code = response.StatusCode.ToString();
+            apiResponse.message = await response.Content.ReadAsStringAsync();
+            return apiResponse;
+
+        }
     }
 }

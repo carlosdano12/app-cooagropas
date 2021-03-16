@@ -38,9 +38,13 @@ namespace Siscoo.Vistas
         private async void insumos_lv_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var insumo = (Insumo)e.SelectedItem;
+            DiaControlInsumo diaControlInsumo = new DiaControlInsumo();
             Console.WriteLine("inusmo: " + insumo.nombre);
             string cantidad = await DisplayPromptAsync("Cantidad", "¿Que cantidad de insumo uso en kg?");
-            _root.llenaLista(insumo, cantidad);
+            diaControlInsumo.insumoId = insumo.id;
+            diaControlInsumo.cantidad = float.Parse(cantidad);
+            diaControlInsumo.insumo = insumo;
+            _root.addInsumo(diaControlInsumo);
             this.Navigation.PopModalAsync();
         }
 
