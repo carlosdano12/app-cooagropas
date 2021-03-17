@@ -82,20 +82,33 @@ namespace Siscoo.Vistas
             }
             else
             {
-                //var response = await cultivoManager.update(asociado.accessToken, cultivo1.id_cultivo, asociado.accessToken, nombre, niame.id_niame, inicio, fin, hectareas, kg, costo, false);
-                //Console.WriteLine("updateSiem " + response.code);
-                //if (response.code == "OK" || response.code == "Created")
-                //{
-                //    await DisplayAlert("Cultivo", "Se actualizo la informacion de la siembra correctamente", "OK");
-                //    await Navigation.PopAsync();
-                //}
-                //else
-                //{
-                //    Console.WriteLine("erro updateSiembra(): " + response.message);
-                //    await DisplayAlert("Error", "Ocurrio un error al registrar la siembra", "OK");
-                //}
+                diaControl.fechaControl = fecha_control_DtPick.Date;
+                diaControl.descripcion = textDescripcion.Text;
+                diaControl.cultivoIdCultivo = cultivoId;
+                diaControl.diasControlInsumos = insumos.ToArray();
+                var response = await diaControlManager.update(asociado.accessToken, diaControl);
+                Console.WriteLine("update día de control " + response.code);
+                if (response.code == "OK" || response.code == "Created")
+                {
+                    await DisplayAlert("Día de control", "Se actualizo la informacion del día de control correctamente", "OK");
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    Console.WriteLine("erro updateDiaControl(): " + response.message);
+                    await DisplayAlert("Error", "Ocurrio un error al actualizar el día de control", "OK");
+                }
 
             }
+        }
+
+        private void btnEliminar_Clicked(object sender, EventArgs e)
+        {
+            var viewCellSelected = sender as MenuItem;
+            var insumoToDelete = viewCellSelected?.BindingContext as DiaControlInsumo;
+            insumos.Remove(insumoToDelete);
+            insumos = insumos.OrderBy(o => o.insumo.nombre).ToList();
+            insumos_lv.ItemsSource = insumos;
         }
     }
 }

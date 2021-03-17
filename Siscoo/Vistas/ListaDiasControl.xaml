@@ -7,7 +7,7 @@
             <Image Source="niames.jpg" Aspect="AspectFill"/>
             <BoxView Color="Black" Opacity="0.5"/>
             <StackLayout>
-                <Label Text="GESTIONAR COSECHAS" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                <Label Text="GESTIONAR DÍAS DE CONTROL" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
                 <ScrollView>
                     <ListView x:Name="diaControl_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding diaControl}" HasUnevenRows="True" ItemSelected="diaControl_lv_ItemSelected">
                         <ListView.ItemTemplate>

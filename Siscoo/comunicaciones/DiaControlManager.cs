@@ -11,7 +11,7 @@ namespace Siscoo.comunicaciones
 {
     class DiaControlManager
     {
-         const string url = "http://10.0.2.2:3000/api/v1/dia-control";
+        const string url = "http://10.0.2.2:3000/api/v1/dia-control";
 
         private async Task<HttpClient> get()
         {
@@ -43,6 +43,18 @@ namespace Siscoo.comunicaciones
             cliente.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
             var response = await cliente.PostAsync(url,
                 new StringContent(JsonConvert.SerializeObject(diaControl), Encoding.UTF8, "application/json"));
+            ApiResponse apiResponse = new ApiResponse();
+            apiResponse.code = response.StatusCode.ToString();
+            apiResponse.message = await response.Content.ReadAsStringAsync();
+            return apiResponse;
+
+        }
+        public async Task<ApiResponse> update(string token, DiaControl diaControl)
+        {
+
+            HttpClient client = await get();
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            var response = await client.PutAsync(url + "/" + diaControl.id, new StringContent(JsonConvert.SerializeObject(diaControl), Encoding.UTF8, "application/json"));
             ApiResponse apiResponse = new ApiResponse();
             apiResponse.code = response.StatusCode.ToString();
             apiResponse.message = await response.Content.ReadAsStringAsync();

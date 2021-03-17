@@ -31,6 +31,9 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem x:Name="btnEliminar" Text="Eliminar" IsDestructive="True" Clicked="btnEliminar_Clicked"/>
+                                    </ViewCell.ContextActions>
                                     <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
                                         <StackLayout Orientation="Vertical" Padding="5">
                                             <Label FontSize="Large" FontAttributes="Bold" TextColor="red">
