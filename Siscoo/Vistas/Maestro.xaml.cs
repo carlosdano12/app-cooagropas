@@ -35,7 +35,7 @@ namespace Siscoo.Vistas
         private void btn_solicitud_compra_Clicked(object sender, EventArgs e)
         {
             App.MasterD.IsPresented = false;
-            App.MasterD.Detail.Navigation.PushAsync(new GestionarCultivos(asociado));
+            App.MasterD.Detail.Navigation.PushAsync(new GestionarCompras(asociado));
         }
     }
 }

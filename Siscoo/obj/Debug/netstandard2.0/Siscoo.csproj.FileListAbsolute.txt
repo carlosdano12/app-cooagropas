@@ -44,3 +44,6 @@ F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCosecha.
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarDiaControl.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\ModalInsumos.xaml.g.cs
 F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\ListaDiasControl.xaml.g.cs
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\GestionarCompras.xaml.g.cs
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\RegistrarCompra.xaml.g.cs
+F:\Repos\app-cooagropas\Siscoo\obj\Debug\netstandard2.0\Vistas\ModalImsumoCompra.xaml.g.cs

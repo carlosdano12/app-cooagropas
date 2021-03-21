@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Siscoo.Vistas.RegistrarCompra">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <BoxView Color="LightGray" Opacity="0.5"/>
+
+            <StackLayout>
+                <Label Text="INFORMACIÓN DE LA SOLICITUD DE COMPRA" HorizontalTextAlignment="Center" TextColor="#000" FontSize="27"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Grid Here -->
+
+                    <Label Text="Nota: " Grid.Row="1" Grid.Column="0" FontSize="20" VerticalOptions="Center" TextColor="#000"/>
+                    <Editor x:Name="txtNota" Grid.Row="1" Grid.Column="1" Keyboard="Text"/>
+                </Grid>
+                <Label Text="INSUMOS" HorizontalTextAlignment="Center" TextColor="#000" FontSize="18"/>
+                <ScrollView>
+                    <ListView x:Name="insumos_lv" SeparatorVisibility="Default" BackgroundColor="AliceBlue" IsPullToRefreshEnabled="True" ItemsSource="{Binding insumos}" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem x:Name="btnEliminar" Text="Eliminar" IsDestructive="True" Clicked="btnEliminar_Clicked"/>
+                                    </ViewCell.ContextActions>
+                                    <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Vertical" Padding="5">
+                                            <Label FontSize="Large" FontAttributes="Bold" TextColor="red">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding cantidad}" />
+                                                        <Span Text=" Kg - " />
+                                                        <Span Text="{Binding insumo.nombre}" TextColor="Black"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+                <Button x:Name="btnInsumo" Text="AGREGAR INSUMO A LA LISTA" BackgroundColor="#2D6276" TextColor="White" Clicked="btnInsumo_Clicked"></Button>
+                <Button x:Name="btnGuardar" Text="GUARDAR DATOS" BackgroundColor="#2D7649" TextColor="White" Clicked="btnGuardar_Clicked" ></Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
