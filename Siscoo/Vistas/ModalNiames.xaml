@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Siscoo.Vistas.GestionarTransporte">
+             x:Class="Siscoo.Vistas.ModalNiames">
     <ContentPage.Content>
         <Grid>
-            <Image Source="niames.jpg" Aspect="AspectFill"/>
+            <Image Source="fondo.png" Aspect="AspectFill"/>
             <BoxView Color="Black" Opacity="0.5"/>
-            <StackLayout>
-                <Label Text="GESTIONAR COSECHAS" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <StackLayout BackgroundColor="#fff" Opacity="0.5">
+                <Label Text="LISTA DE NIAMES" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
                 <ScrollView>
-                    <ListView x:Name="transporte_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding transporte}" HasUnevenRows="True" ItemSelected="transporte_lv_ItemSelected">
+                    <ListView x:Name="niames_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding niames}" HasUnevenRows="True" ItemSelected="niames_lv_ItemSelected">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame CornerRadius="8" HasShadow="True" Padding="5" Margin="5" VerticalOptions="CenterAndExpand">
                                         <StackLayout Orientation="Vertical" Padding="5">
-                                            <Label Text="{Binding fechaSolicitud, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
                                         </StackLayout>
                                     </Frame>
                                 </ViewCell>
@@ -23,7 +23,6 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </ScrollView>
-                <Button Text="REGISTRAR NUEVA SOLICITUD DE TRANSPORTE" BackgroundColor="#2D7649" TextColor="White" Clicked="Button_Clicked"></Button>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

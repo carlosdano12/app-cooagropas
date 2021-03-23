@@ -29,7 +29,7 @@ namespace Siscoo.Vistas
         private void btn_gestion_transporte_Clicked(object sender, EventArgs e)
         {
             App.MasterD.IsPresented = false;
-            App.MasterD.Detail.Navigation.PushAsync(new GestionarTransportes());
+            App.MasterD.Detail.Navigation.PushAsync(new GestionarTransporte(asociado));
         }
 
         private void btn_solicitud_compra_Clicked(object sender, EventArgs e)
