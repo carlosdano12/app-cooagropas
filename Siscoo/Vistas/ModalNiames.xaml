@@ -7,7 +7,7 @@
             <Image Source="fondo.png" Aspect="AspectFill"/>
             <BoxView Color="Black" Opacity="0.5"/>
             <StackLayout BackgroundColor="#fff" Opacity="0.5">
-                <Label Text="LISTA DE NIAMES" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
+                <Label Text="LISTA DE ÑAMES" HorizontalTextAlignment="Center" TextColor="Black" FontSize="36"/>
                 <ScrollView>
                     <ListView x:Name="niames_lv" SeparatorVisibility="Default"  IsPullToRefreshEnabled="True" ItemsSource="{Binding niames}" HasUnevenRows="True" ItemSelected="niames_lv_ItemSelected">
                         <ListView.ItemTemplate>
